@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 # acumen
+=======
+# Alteryx Acumen
+>>>>>>> 41186ed0d1bdaf31effddf75741deb1ad7bf7475
 
 > An Alteryx Gallery & Server Admin Tool
 
 ## Build Setup
 
 ``` bash
+<<<<<<< HEAD
+=======
+# clone
+git clone https://github.com/alteryx-vue/acumen.git
+
+>>>>>>> 41186ed0d1bdaf31effddf75741deb1ad7bf7475
 # install dependencies
 npm install
 
@@ -15,4 +25,17 @@ npm run dev
 npm run build
 ```
 
+<<<<<<< HEAD
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+> Alteryx MongoDB API App
+
+- Download the [MongoDB API App](https://gallery.alteryx.com/#!app/Alteryx-MongoDB-API-App/5b1563a9826fd306ecb2a8ac) from the public gallery and save/publish a copy in your organization's gallery
+- Grab the App's ID from it's URL
+
+> Settings
+
+Visit the settings page in Alteryx Acumen and populate appropriately
+
+Contribute!!!
+>>>>>>> 41186ed0d1bdaf31effddf75741deb1ad7bf7475

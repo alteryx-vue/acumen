@@ -208,7 +208,7 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
-					console.log('Job ID: ' + response.data.id)
+					// console.log('Job ID: ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
@@ -262,7 +262,7 @@ const gallery = {
 
 		    	// store.commit('updateJobsLoading', true)
 		    	// store.commit('updateJobs', [])
-		    	console.log('$gallery confirms job id: ' + jobId)
+		    	// console.log('$gallery confirms job id: ' + jobId)
 				var resource = 'results',
 				appId = store.state.mongodb.app,
 				type = 'POST',
@@ -288,7 +288,7 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
-					console.log('Call job id = ' + response.data.id)
+					// console.log('Call job id = ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})

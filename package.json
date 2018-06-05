@@ -11,7 +11,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.7.2",
+<<<<<<< HEAD
     "circular-json": "^0.5.4",
+=======
+>>>>>>> 41186ed0d1bdaf31effddf75741deb1ad7bf7475
     "humanize-duration": "^3.14.0",
     "moment": "^2.22.1",
     "vue": "^2.5.3",

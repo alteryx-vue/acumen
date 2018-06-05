@@ -391,17 +391,10 @@
       },
       resultDetails(){
         if (this.$store.state.jobResult.log) {
-          // console.log(this.$store.state.jobResult.log)
-          // console.log(this.$store.state.jobResult.log.replace('[','').replace(']','').replace('\"', '').split('__jSplit__'))
           return this.$store.state.jobResult.log.replace('[','').replace(']','').replace('\"', '').split('__jSplit__')
-          // console.log(this.$store.state.jobResult.log[0].replace('\"', '').split('__jSplit__'))
-          // return this.$store.state.jobResult.log[0].replace('\"', '').split('__jSplit__')
         } else {
-          // console.log('nothing here')
           return null
         }
-
-        //return this.$store.state.jobResult.log.replace('[','').replace(']','').replace('\"', '').split('__jSplit__') || null
       }
     },
     mounted() {
@@ -416,7 +409,7 @@
         if (x > 0) { this.progressCount = 0 }
       },
       getResultDetails(job){
-        console.log('Getting results for ' + job)
+        // console.log('Getting results for ' + job)
         this.$gallery.getResult(job.JobID)
         this.jobResult.for = job.AppName
         this.jobResult.user = job.User
