@@ -27,4 +27,4 @@ npm run build
 
 Visit the settings page in Alteryx Acumen and populate appropriately
 
-FORK ME!
+Contribute!!!
