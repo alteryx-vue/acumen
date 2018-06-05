@@ -5,8 +5,6 @@
 ## Build Setup
 
 ``` bash
-<<<<<<< HEAD
-=======
 # clone
 git clone https://github.com/alteryx-vue/acumen.git
 
