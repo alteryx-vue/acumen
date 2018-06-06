@@ -20,15 +20,15 @@ export const store = new Vuex.Store({
 		excerpt: 'keen insights for alteryx admins',
 		gallery: 'https://alteryxacumen.rocks/gallery',
 		privateApi: {
-			key: '8D5CA4186F7D45406098ee5d79662da2ae5b320f7764ac7c8f406d2',
-			secret: '5ff316007b5c2edfbcfd805baf06e983c2be4b29f5b3b881b52e9b3f317206cd'
+			key: '8D5CB23A1D6B48B867201ecde27d3047fbc48856278688529d8259a',
+			secret: '9ea66c6da346d3adac96f88deb52e43b648e3ddee2677f39cb29c5ee6d3e7157='
 		},
 		adminApi: {
-			key: '8D5CA4190E799D6346540186089b08f6d9853c8f78e5136ac9b2d17',
-			secret: 'f31b102bf35ca5894c2caee6ed1c71a55461da3d5d7f1c5291b22808c0c54df1'
+			key: '8D5CB23CC02BA8F0313c16b2b8ab39cc48488340e16caa30d629c92',
+			secret: '3766664f31feb2496dae8bf8cd6bbfbde48850f3891e70b0b64c716f2e8149bc'
 		},
 		mongodb: {
-			app: '5b1582c443e7ff0ba45d4d41',
+			app: '5b172c6043e7ff08cc369bb4',
 			server: 'localhost',
 			port: '27018',
 			gallerydb: 'AlteryxGallery',
