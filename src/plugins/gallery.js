@@ -201,7 +201,7 @@ const gallery = {
 				    { "name": "pass", "value": store.state.mongodb.pass }
 				  ]
 				}
-
+				// console.log('Request URL: ' + reqUrl)
 				axios({
 				  method: type,
 				  url: reqUrl,

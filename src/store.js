@@ -1,16 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VuexPersistence from 'vuex-persist'
 
-const vuexLocal = new VuexPersistence({
-    storage: window.localStorage,
-    reducer: state => ({
-    	gallery: state.gallery,
-    	privateApi: state.privateApi,
-		adminApi: state.adminApi,
-		mongodb: state.mongodb
-    })
-})
+/*
+
+NOTE:
+In your own envirnoment, you may want to uncomment and enable vuex-persist
+to allow your browser to remember your application settings.  
+There 2 areas to uncomment - the first is the block directly below this
+and the second is at the very bottom of the store where it reads "plugins: [vuexLocal.plugin]"
+
+*/
+
+// import VuexPersistence from 'vuex-persist'
+
+// const vuexLocal = new VuexPersistence({
+//     storage: window.localStorage,
+//     reducer: state => ({
+//     	gallery: state.gallery,
+//     	privateApi: state.privateApi,
+// 		adminApi: state.adminApi,
+// 		mongodb: state.mongodb
+//     })
+// })
 
 Vue.use(Vuex)
 
@@ -20,15 +31,15 @@ export const store = new Vuex.Store({
 		excerpt: 'keen insights for alteryx admins',
 		gallery: 'https://alteryxacumen.rocks/gallery',
 		privateApi: {
-			key: '8D5CB23A1D6B48B867201ecde27d3047fbc48856278688529d8259a',
-			secret: '9ea66c6da346d3adac96f88deb52e43b648e3ddee2677f39cb29c5ee6d3e7157='
+			key: '8D5CB9B7A770B53783509ff6a11c16cdb9aec65aa592f85c9a31e43',
+			secret: 'f8765c6cb1d03e2825e0670207cedff28057525f8980a504800415df0d4bda87'
 		},
 		adminApi: {
-			key: '8D5CB23CC02BA8F0313c16b2b8ab39cc48488340e16caa30d629c92',
-			secret: '3766664f31feb2496dae8bf8cd6bbfbde48850f3891e70b0b64c716f2e8149bc'
+			key: '8D5CB9BC723C44099b8445fba7c3655c9a87959fcfb3499f22c79e7',
+			secret: '37271c67e6fed66cbae98b1297a41e7ceb6048ff365c32ae286241ab4050b467'
 		},
 		mongodb: {
-			app: '5b172c6043e7ff08cc369bb4',
+			app: '5b17f5d843e7ff01e03644b9',
 			server: 'localhost',
 			port: '27018',
 			gallerydb: 'AlteryxGallery',
@@ -134,5 +145,5 @@ export const store = new Vuex.Store({
 			state.jobs.refreshrate = v
 		}
 	},
-	plugins: [vuexLocal.plugin]
+	// plugins: [vuexLocal.plugin]
 })

@@ -1,9 +1,15 @@
 <template>
 
 	<div>
-		<v-alert type="info" value="true" calss="mb-2">
+		<v-alert outline color="info" icon="info" value="true" class="mb-2">
 	      For the demo, these inputs are unbound.  When using this app with your own Gallery, you'll need to provide these values.
 	    </v-alert>
+
+	    <!--
+	    	NOTE: 
+	    	WHEN USING THIS IN YOUR OWN ENVIRONMENT YOU'LL NEED TO SWITCH THE INPUTS BELOW 
+	    	TO THE ONES USING V-MODEL BINDING THAT ARE CURRENTLY COMMENTED OUT
+		-->
 
 		<v-form>
 			<v-card class="mb-3">

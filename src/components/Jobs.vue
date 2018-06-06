@@ -5,7 +5,7 @@
     <div class="headline blue-grey--text mb-3">
       <v-layout row wrap>
         <v-flex xs6>
-          <span class="headline">Server/Gallery Jobs</span>
+          <span class="headline">Server/Gallery Jobs</span><!-- <span class="ml-2 subheader">(loading options in top right)</span> -->
         </v-flex>
         <v-flex xs6 class="text-xs-right">
           <v-btn
@@ -399,6 +399,7 @@
     },
     mounted() {
       // this.$gallery.getJobs()
+      this.$store.state.jobs.data && this.$store.state.jobs.data.length > 0 ? console.log('Jobs already loaded') : this.$gallery.getJobs()
       this.currentTime = moment().valueOf()
       this.theMoment = setInterval(() => this.updateCurrentTime(), 1 * 1000)
       this.checkIntervals(parseInt(this.$store.state.jobs.refreshrate))
