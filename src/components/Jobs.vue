@@ -49,7 +49,7 @@
           row
           wrap
           :items="jobs.running"
-          no-data-text="No jobs.."
+          no-data-text="No jobs running.."
           hide-actions
         >
           <v-flex

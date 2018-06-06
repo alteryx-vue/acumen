@@ -35,7 +35,7 @@
 			</v-flex>
 			<v-flex xs9>
 				<v-card class="elevation-3 pa-3">
-					<newbies-chart :data="newbies" height="200" title="New users by month (rolling year)"></newbies-chart>
+					<newbies-chart :data="newbies" height="200" title="New users by month (rolling year)" :options="newbOpts"></newbies-chart>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -204,40 +204,40 @@ import NewbiesChart from './charts/line'
         return this.$store.state.users.loading ? 'Loading user data...' : 'User data currently empty...'
       },
       userRoles() {
-		var agg = this.$gallery.tally(this.$store.state.users.data,'Role'),
-	    config = this.$gallery.divorce(agg),
-	    chartLabels = config.keys,
-	    chartData = config.vals,
-	    colorArr = []
-	    // console.log(chartLabels)
-	    chartLabels.forEach(r => {
-	    	colorArr.push(this.roleColor(r))
-	    })
-	    var chartDatasets = [{ backgroundColor: colorArr,
-	          		  data: chartData
-	        		}]
-		return { labels: chartLabels, datasets: chartDatasets }
+    		  var agg = this.$gallery.tally(this.$store.state.users.data,'Role'),
+    	    config = this.$gallery.divorce(agg),
+    	    chartLabels = config.keys,
+    	    chartData = config.vals,
+    	    colorArr = []
+    	    // console.log(chartLabels)
+    	    chartLabels.forEach(r => {
+    	    	colorArr.push(this.roleColor(r))
+    	    })
+    	    var chartDatasets = [{ backgroundColor: colorArr,
+    	          		  data: chartData
+    	        		}]
+    		return { labels: chartLabels, datasets: chartDatasets }
       },
       roles() {
-	    return this.$gallery.divorce(this.$gallery.tally(this.$store.state.users.data,'Role')).keys
-	  },
-	  newbies() {
-	    var newUsers = this.$store.state.users.data.filter(s => this.$moment(s.Joined).isSameOrAfter(this.$moment().startOf('month').subtract(11,'months'))),
-	    byMonth = newUsers.map( a => { 
-	    	return { 
-	    		joined: this.$moment(a.Joined).format("X"),
-	    		joinedLabel: this.$moment(a.Joined).format("MMM YYYY")
-	    	} 
-	    }),
-	    sorted = byMonth.sort((a, b) => a.joined - b.joined),
-	    agg = this.$gallery.tally(sorted, 'joinedLabel'),
-	    config = this.$gallery.divorce(agg),
-	    chartLabels = config.keys,
-	    chartData = config.vals,
-		chartDatasets = [
-			{ label: 'New users', backgroundColor: 'rgba(63, 81, 181, 0.25)', borderColor: 'rgba(63, 81, 181, 0.8)', borderWidth: 1, data: chartData }
-		]
-		return { labels: chartLabels, datasets: chartDatasets }
+        return this.$gallery.divorce(this.$gallery.tally(this.$store.state.users.data,'Role')).keys
+	    },
+      newbies() {
+  	    var newUsers = this.$store.state.users.data.filter(s => this.$moment(s.Joined).isSameOrAfter(this.$moment().startOf('month').subtract(11,'months'))),
+  	    byMonth = newUsers.map( a => { 
+  	    	return { 
+  	    		joined: this.$moment(a.Joined).format("X"),
+  	    		joinedLabel: this.$moment(a.Joined).format("MMM YYYY")
+  	    	} 
+  	    }),
+  	    sorted = byMonth.sort((a, b) => a.joined - b.joined),
+  	    agg = this.$gallery.tally(sorted, 'joinedLabel'),
+  	    config = this.$gallery.divorce(agg),
+  	    chartLabels = config.keys,
+  	    chartData = config.vals,
+  		  chartDatasets = [
+  			   { label: 'New users', backgroundColor: 'rgba(63, 81, 181, 0.25)', borderColor: 'rgba(63, 81, 181, 0.8)', borderWidth: 1, data: chartData }
+  		  ]
+  		return { labels: chartLabels, datasets: chartDatasets }
 	  }
     },
     methods: {
