@@ -10,7 +10,7 @@
 	        <v-flex>
 	          <div class="display-1">Working on it..</div>
 	          <v-divider class="my-3"></v-divider>
-	          <v-btn large class="mx-0" to="/jobs">View jobs instead</v-btn>
+	          <v-btn large class="mx-0" to="/users">View users instead</v-btn>
 	        </v-flex>
 	      </v-layout>
 	    </v-container>

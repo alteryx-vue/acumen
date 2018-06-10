@@ -68,16 +68,10 @@
             count: 0 
           },
           { 
-            title: 'Content', 
-            route: '/content', 
-            icon: 'get_app', 
-            count: 0 
-          },
-          { 
-            title: 'Jobs', 
-            route: '/jobs', 
-            icon: 'schedule', 
-            count: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.$store.state.mongodb.app && m.Status == 'Running').length
+            title: 'Users', 
+            route: '/users', 
+            icon: 'supervisor_account', 
+            count: this.$store.state.users.data.length
           },
           { 
             title: 'Sessions', 
@@ -85,11 +79,17 @@
             icon: 'visibility', 
             count: this.$store.state.sessions.data.filter((s) => this.$moment(s.LastActive).isSameOrAfter(this.$moment().startOf('day'))).length 
           },
+          {
+            title: 'Jobs', 
+            route: '/jobs', 
+            icon: 'schedule', 
+            count: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.$store.state.mongodb.app && m.Status == 'Running').length
+          },          
           { 
-            title: 'Users', 
-            route: '/users', 
-            icon: 'supervisor_account', 
-            count: this.$store.state.users.data.length
+            title: 'Content', 
+            route: '/content', 
+            icon: 'get_app', 
+            count: 0 
           },
           { 
             title: 'Settings', 
