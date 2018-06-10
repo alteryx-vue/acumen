@@ -8,7 +8,6 @@
 # clone
 git clone https://github.com/alteryx-vue/acumen.git
 
->>>>>>> 41186ed0d1bdaf31effddf75741deb1ad7bf7475
 # install dependencies
 npm install
 
