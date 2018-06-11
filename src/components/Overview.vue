@@ -13,7 +13,6 @@
 			      <h3 class="display-3">Alteryx Acumen</h3>
 			      <span class="title">Alteryx Acumen is a server admin tool that provides insights about Gallery users, jobs, content &amp; more</span>
 			      <v-divider class="my-3"></v-divider>
-			      <!-- <div class="title mb-3">This demo is connected to a public gallery running in Google Cloud</div> -->
 			      <v-btn large color="primary" class="mx-0" to="/users">See more</v-btn>
 			    </v-flex>
 			  </v-layout>
@@ -27,7 +26,6 @@
 			    <v-card-text>
 			    	Alteryx Acumen was a project submission at the inaugural <a href="https://www.alteryx.com/inspire-2018/" target="_blank">Alteryx Inspire</a> day-long hackthon, known as <a href="https://community.alteryx.com/t5/Inspire-2018-Buzz/Alteryx-BUILD-Details/td-p/155043" target="_blank">Alteryx BUILD</a>.  That being said, let's be perfectly clear...
 			    	<blockquote class="blockquote grey--text text--darken-1">Alteryx Acumen is <strong>not an official Alteryx Product</strong></blockquote>
-			    	<!-- <v-divider class="my-2"></v-divider> -->
 			    	This open-source community project was developed specifically for Alteryx server/gallery administrators and aims to provide deeper insights into user activity, job execution, job schedules, gallery content and more.  The application is still a work in progress and, with amazing new features in 2018.3 around the corner, will likely not have much support going forward.  Alteryx truly is the best at listening to their customers and while our project became obsolete in almost 24 hours (sighs, laughter), we had a blast at the hackathon and learned countless lessons.
 			    </v-card-text>
 			  </v-card>
@@ -81,55 +79,51 @@
 			  <div slot="header" class="headline">Contact</div>
 			  <v-card>
 			    <v-card-text>
-
-
-				<v-layout align-center row spacer>
-		          <v-flex xs7>
-		            <v-avatar
-		              slot="activator"
-		              size="48px"
-		              class="mr-3"
-		            >
-		              <img
-		                src="/public/taylor.png"
-		                alt=""
-		              >
-		            </v-avatar>
-		            <span class="grey--text text--darken-2"><strong>Taylor Cox</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
-		          </v-flex>
-		          <v-flex
-		          	xs5
-		            class="light-blue--text text--darken-3"
-		            ellipsis
-		          >
-		            <a href="mailto:taylorcox.dev@gmail.com">taylorcox.dev@gmail.com</a>
-		          </v-flex>
-		        </v-layout>
-		        <v-divider class="my-2"></v-divider>
-		        <v-layout align-center row spacer>
-		          <v-flex xs7>
-		            <v-avatar
-		              slot="activator"
-		              size="48px"
-		              class="mr-3"
-		            >
-		              <img
-		                src="/public/todd.jpg"
-		                alt=""
-		              >
-		            </v-avatar>
-		            <span class="grey--text text--darken-2"><strong>Todd Howell</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
-		          </v-flex>
-		          <v-flex
-		          	xs5
-		            class="light-blue--text text--darken-3"
-		            ellipsis
-		          >
-		            <a href="mailto:taylorcox.dev@gmail.com">tehowell@gmail.com</a>
-		          </v-flex>
-		        </v-layout>
-
-			    	
+					<v-layout align-center row spacer>
+			          <v-flex xs7>
+			            <v-avatar
+			              slot="activator"
+			              size="48px"
+			              class="mr-3"
+			            >
+			              <img
+			                src="/public/taylor.png"
+			                alt=""
+			              >
+			            </v-avatar>
+			            <span class="grey--text text--darken-2"><strong>Taylor Cox</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
+			          </v-flex>
+			          <v-flex
+			          	xs5
+			            class="light-blue--text text--darken-3"
+			            ellipsis
+			          >
+			            <a href="mailto:taylorcox.dev@gmail.com">taylorcox.dev@gmail.com</a>
+			          </v-flex>
+			        </v-layout>
+			        <v-divider class="my-2"></v-divider>
+			        <v-layout align-center row spacer>
+			          <v-flex xs7>
+			            <v-avatar
+			              slot="activator"
+			              size="48px"
+			              class="mr-3"
+			            >
+			              <img
+			                src="/public/todd.jpg"
+			                alt=""
+			              >
+			            </v-avatar>
+			            <span class="grey--text text--darken-2"><strong>Todd Howell</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
+			          </v-flex>
+			          <v-flex
+			          	xs5
+			            class="light-blue--text text--darken-3"
+			            ellipsis
+			          >
+			            <a href="mailto:taylorcox.dev@gmail.com">tehowell@gmail.com</a>
+			          </v-flex>
+			        </v-layout>
 			    </v-card-text>
 			  </v-card>
 			</v-expansion-panel-content>

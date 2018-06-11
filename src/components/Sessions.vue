@@ -183,9 +183,6 @@
               <v-card-title class="grey--text text--darken-3 title">{{ props.item.Name }}</v-card-title>
               <v-divider></v-divider>
               <v-list dense>
-<!--                 <v-list-tile class="blue--text text--darken-3">
-                    <span class="subheader mx-0 px-0">last seen&nbsp;</span><strong>{{ props.item.LastActive | moment("from", "now") }}</strong>
-                </v-list-tile> -->
                 <v-list-tile class="grey--text text--darken-1">
                     <v-icon small class="mr-2">perm_media</v-icon>
                     <strong>{{ props.item.Studio }}</strong>
@@ -203,8 +200,6 @@
                     </v-flex>
                   </v-layout>
                 </v-list-tile>
-                
-
               </v-list>
             </v-card>
           </v-flex>
@@ -220,11 +215,9 @@
 
 <script>
 
-// import SeshChart from './charts/line-chart'
 
   export default {
     name: 'Sessions',
-    // components: { SeshChart },
     data () {
       return {
         rowsPerPageItems: [4, 8, 12, 16, 20],

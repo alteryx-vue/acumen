@@ -25,7 +25,6 @@
         </v-layout>
       </div>
 
-    <!-- <v-divider class="my-2"></v-divider> -->
     <v-container grid-list-md text-xs-center>
 		<v-layout row wrap v-if="userRoles.labels.length > 0">
 			<v-flex xs3>
@@ -35,7 +34,7 @@
 			</v-flex>
 			<v-flex xs9>
 				<v-card class="elevation-3 pa-3">
-					<newbies-chart :data="newbies" height="200" title="New users by month (rolling year)" :options="newbOpts"></newbies-chart>
+					<newbies-chart :data="newbies" height="200" title="New users by month (rolling year)"></newbies-chart>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -209,12 +208,11 @@ import NewbiesChart from './charts/line'
     	    chartLabels = config.keys,
     	    chartData = config.vals,
     	    colorArr = []
-    	    // console.log(chartLabels)
     	    chartLabels.forEach(r => {
     	    	colorArr.push(this.roleColor(r))
     	    })
     	    var chartDatasets = [{ backgroundColor: colorArr,
-    	          		  data: chartData
+    	          		  data: chartData,
     	        		}]
     		return { labels: chartLabels, datasets: chartDatasets }
       },

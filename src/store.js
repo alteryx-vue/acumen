@@ -1,16 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-/*
-
-NOTE:
-In your own envirnoment, you may want to uncomment and enable vuex-persist
-to allow your browser to remember your application settings.  
-There 2 areas to uncomment - the first is the block directly below this
-and the second is at the very bottom of the store where it reads "plugins: [vuexLocal.plugin]"
-
-*/
-
 import VuexPersistence from 'vuex-persist'
 
 const vuexLocal = new VuexPersistence({
@@ -138,7 +128,6 @@ export const store = new Vuex.Store({
 			state.jobs.loading = v
 		},
 		updateResult (state, v) {
-			// state.jobResult.errors = v.ErrorMessage.split('__lineBreak__')
 			state.jobResult.log = v[0].OutputLog
 		},
 		updateRefreshRate (state, v) {

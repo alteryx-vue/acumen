@@ -5,7 +5,7 @@
     <div class="headline blue-grey--text mb-3">
       <v-layout row wrap>
         <v-flex xs6>
-          <span class="headline">Server/Gallery Jobs</span><!-- <span class="ml-2 subheader">(loading options in top right)</span> -->
+          <span class="headline">Server/Gallery Jobs</span>
         </v-flex>
         <v-flex xs6 class="text-xs-right">
           <v-btn

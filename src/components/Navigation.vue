@@ -36,10 +36,6 @@
         <v-icon dark>chevron_right</v-icon>
         {{ page }}
       </v-toolbar-title>
-      <!-- <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon class="white--text">refresh</v-icon>
-      </v-btn> -->
     </v-toolbar>
 
   </div>
