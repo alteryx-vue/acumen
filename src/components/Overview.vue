@@ -25,10 +25,10 @@
 			  <div slot="header" class="headline">Background</div>
 			  <v-card>
 			    <v-card-text>
-			    	Alteryx Acumen was a project submission at the inaugural <a href="https://www.alteryx.com/inspire-2018/" target="_blank">Alteryx Inspire</a> day-long hackthon, known as <a href="https://community.alteryx.com/t5/Inspire-2018-Buzz/Alteryx-BUILD-Details/td-p/155043" target="_blank">Alteryx BUILD</a>.  That being said, let's be perfectly clear:  Alteryx Acumen <strong>is not an official Alteryx Product</strong>.
+			    	Alteryx Acumen was a project submission at the inaugural <a href="https://www.alteryx.com/inspire-2018/" target="_blank">Alteryx Inspire</a> day-long hackthon, known as <a href="https://community.alteryx.com/t5/Inspire-2018-Buzz/Alteryx-BUILD-Details/td-p/155043" target="_blank">Alteryx BUILD</a>.  That being said, let's be perfectly clear...
+			    	<blockquote class="blockquote grey--text text--darken-1">Alteryx Acumen is <strong>not an official Alteryx Product</strong></blockquote>
 			    	<!-- <v-divider class="my-2"></v-divider> -->
-			    	<br><br>
-			    	The project was developed specifically for Alteryx server/gallery administrators and aims to provide deeper insights into user activity, job execution, job schedules, gallery content and more.  The application is still a work in progress and, with amazing new features in 2018.3 around the corner, will likely not have much support going forward.  Alteryx truly is the best at listening to their customers and while our project became obsolete in almost 24 hours (sighs, laughter), we had a blast at the hackathon and learned countless lessons.
+			    	This open-source community project was developed specifically for Alteryx server/gallery administrators and aims to provide deeper insights into user activity, job execution, job schedules, gallery content and more.  The application is still a work in progress and, with amazing new features in 2018.3 around the corner, will likely not have much support going forward.  Alteryx truly is the best at listening to their customers and while our project became obsolete in almost 24 hours (sighs, laughter), we had a blast at the hackathon and learned countless lessons.
 			    </v-card-text>
 			  </v-card>
 			</v-expansion-panel-content>
