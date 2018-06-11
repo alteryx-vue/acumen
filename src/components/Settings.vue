@@ -1,9 +1,9 @@
 <template>
 
 	<div>
-		<v-alert outline color="info" icon="info" value="true" class="mb-2">
+		<!-- <v-alert outline color="info" icon="info" value="true" class="mb-2">
 	      For the demo, these inputs are unbound.  When using this app with your own Gallery, you'll need to provide these values.
-	    </v-alert>
+	    </v-alert> -->
 
 	    <!--
 	    	NOTE: 
@@ -17,8 +17,8 @@
 					<div class="title blue-grey--text">Alteryx Gallery URL</div>
 				</v-card-title>
 				<v-card-text>
-					<!-- <v-text-field label="Gallery URL" v-model="gallery"></v-text-field> -->
-					<v-text-field label="Gallery URL" value="https://alteryxacumen.rocks/gallery"></v-text-field>
+					<v-text-field label="Gallery URL" v-model="gallery"></v-text-field>
+					<!-- <v-text-field label="Gallery URL" value="https://alteryxacumen.rocks/gallery"></v-text-field> -->
 				</v-card-text>
 			</v-card>
 
@@ -27,10 +27,10 @@
 					<div class="title blue-grey--text">Private Studio API</div>
 				</v-card-title>
 				<v-card-text>
-					<!-- <v-text-field label="Key" v-model="key"></v-text-field>
-					<v-text-field label="Secret" v-model="secret"></v-text-field> -->
-					<v-text-field label="Key"></v-text-field>
-					<v-text-field label="Secret"></v-text-field>
+					<v-text-field label="Key" v-model="key"></v-text-field>
+					<v-text-field label="Secret" v-model="secret"></v-text-field>
+					<!-- <v-text-field label="Key"></v-text-field>
+					<v-text-field label="Secret"></v-text-field> -->
 				</v-card-text>
 			</v-card>
 
@@ -40,10 +40,10 @@
 				</v-card-title>
 				<v-card-text>
 					<p class="mt-0">Make sure this is enabled under <b>account > settings > keys</b></p>
-					<!-- <v-text-field label="Key" v-model="adminKey"></v-text-field>
-					<v-text-field label="Secret" v-model="adminSecret"></v-text-field> -->
-					<v-text-field label="Key"></v-text-field>
-					<v-text-field label="Secret"></v-text-field>
+					<v-text-field label="Key" v-model="adminKey"></v-text-field>
+					<v-text-field label="Secret" v-model="adminSecret"></v-text-field>
+					<!-- <v-text-field label="Key"></v-text-field>
+					<v-text-field label="Secret"></v-text-field> -->
 				</v-card-text>
 			</v-card>
 
@@ -53,20 +53,20 @@
 				</v-card-title>
 				<v-card-text>
 					<p class="mt-0">Download the Alteryx MongoDB API application and publish to your Alteryx Gallery</b></p>
-					<!-- <v-text-field label="Alteryx Application ID" v-model="mongoApp"></v-text-field>
+					<v-text-field label="Alteryx Application ID" v-model="mongoApp"></v-text-field>
 					<v-text-field label="MongoDB Server" v-model="mongoServer"></v-text-field>
 					<v-text-field label="Port" v-model="mongoPort"></v-text-field>
 					<v-text-field label="Gallery Database" v-model="mongoGallery"></v-text-field>
 					<v-text-field label="Service Database" v-model="mongoService"></v-text-field>
 					<v-text-field label="Username" v-model="mongoUser"></v-text-field>
-					<v-text-field label="Password" v-model="mongoPass"></v-text-field> -->
-					<v-text-field label="Alteryx Application ID">></v-text-field>
+					<v-text-field label="Password" v-model="mongoPass"></v-text-field>
+					<!-- <v-text-field label="Alteryx Application ID">></v-text-field>
 					<v-text-field label="MongoDB Server" value="localhost"></v-text-field>
 					<v-text-field label="Port" value="27018"></v-text-field>
 					<v-text-field label="Gallery Database" value="AlteryxGallery"></v-text-field>
 					<v-text-field label="Service Database" value="AlteryxService"></v-text-field>
 					<v-text-field label="Username" value="user"></v-text-field>
-					<v-text-field label="Password"></v-text-field>
+					<v-text-field label="Password"></v-text-field> -->
 				</v-card-text>
 			</v-card>
 
