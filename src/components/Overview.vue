@@ -83,7 +83,7 @@
 
 
 				<v-layout align-center row spacer>
-		          <v-flex xs6>
+		          <v-flex xs7>
 		            <v-avatar
 		              slot="activator"
 		              size="48px"
@@ -97,11 +97,34 @@
 		            <span class="grey--text text--darken-2"><strong>Taylor Cox</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
 		          </v-flex>
 		          <v-flex
-		          	xs6
+		          	xs5
 		            class="light-blue--text text--darken-3"
 		            ellipsis
 		          >
 		            <a href="mailto:taylorcox.dev@gmail.com">taylorcox.dev@gmail.com</a>
+		          </v-flex>
+		        </v-layout>
+		        <v-divider class="my-2"></v-divider>
+		        <v-layout align-center row spacer>
+		          <v-flex xs7>
+		            <v-avatar
+		              slot="activator"
+		              size="48px"
+		              class="mr-3"
+		            >
+		              <img
+		                src="/public/todd.jpg"
+		                alt=""
+		              >
+		            </v-avatar>
+		            <span class="grey--text text--darken-2"><strong>Todd Howell</strong>&nbsp;&mdash;&nbsp;Developer, Blue Cross Blue Shield NC</span>
+		          </v-flex>
+		          <v-flex
+		          	xs5
+		            class="light-blue--text text--darken-3"
+		            ellipsis
+		          >
+		            <a href="mailto:taylorcox.dev@gmail.com">tehowell@gmail.com</a>
 		          </v-flex>
 		        </v-layout>
 
