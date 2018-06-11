@@ -46,18 +46,18 @@
 			    	<div class="subheading mb-2 amber--text text--darken-4">The Process Flow</div>
 			    	The Gallery and Server's underlying Mongo Database is full of rich data - some of which seldom gets "floated" to the Gallery's UI.  That's where Alteryx Acumen comes in handy...
 			    	<div class="my-2"></div>
-			    	We began by developing and publishing the <a href="https://gallery.alteryx.com/#!app/Alteryx-MongoDB-API-App/5b1563a9826fd306ecb2a8ac" target="_blank">Alteryx MongoDB API App</a> to our demo gallery.  This Alteryx Application utilizes the MongoDB input tool and API Output to, you guessed it, "float" this rich data through the <a href="https://alteryxacumen.rocks/gallery/api-docs/" target="_blank">Gallery APIs</a> and into this web application.
+			    	We began by developing and publishing the <a href="https://gallery.alteryx.com/#!app/Alteryx-MongoDB-API-App/5b1563a9826fd306ecb2a8ac" target="_blank">Alteryx MongoDB API App</a> to our demo gallery.  This Alteryx Application utilizes the <strong>MongoDB Input</strong> tool and <strong>API Output</strong> tool to, you guessed it, "float" this rich data through the <a href="https://alteryxacumen.rocks/gallery/api-docs/" target="_blank">Gallery APIs</a> and into this web application.
 			    	<div class="mt-2 subheader">A basic order of operations:</div>
 			    	 <v-container class="mt-0 pt-0">
 			    	 	<ol>
 				    	 	<li>
-				    	 		The web application calls <code>https://alteryxacumen.rocks/gallery/api/v1/workflows/{mongoAppId}/jobs/</code> to execute our MongoDB API App
+				    	 		The web application calls <code>https://alteryxacumen.rocks/gallery/api/v1/workflows/{mongoAppId}/jobs/</code> to execute our <strong>MongoDB API App</strong>
 				    	 	</li>
 				    	 	<li>
 				    	 		Using the returned <b>Job ID</b>, begin polling <code>https://alteryxacumen.rocks/gallery/api/v1/jobs/{jobId}/</code> until the job is complete. Usually ~ 2 seconds..
 				    	 	</li>
 				    	 	<li>
-				    	 		When the job is complete, the data is available via the 'messages' array within the response.  From there, it's parsed and placed in our <a href="https://vuex.vuejs.org/" target="_blank">vuex</a> data store before being used to [re]render our UI components (update the application display)
+				    	 		When the job is complete, the data is available via the <code>messages</code> array within the response.  From there, it's parsed and placed in our <a href="https://vuex.vuejs.org/" target="_blank">vuex</a> data store before being used to re-render the app's UI components (update the application display)
 				    	 	</li>
 			    	 	</ol>
 			    	 </v-container>
@@ -68,10 +68,11 @@
 			  <div slot="header" class="headline">Sources</div>
 			  <v-card>
 			    <v-card-text>
-			    	Help yourself to the source code on GitHub and be sure to check out the Alteryx Vue.js resources.
+			    	Help yourself to the source code on GitHub - fork/contribute! Also, be sure to check out the Alteryx Vue.js organization for great resources on developing Alteryx HTML/JavaScript tools using Vue.js
 			    	  <div class="mt-3">
 					    <v-btn outline color="black" href="https://github.com/alteryx-vue/acumen" target="_blank">Alteryx Acumen Project</v-btn>
-					    <v-btn outline color="indigo" href="https://github.com/alteryx-vue" target="_blank">Alteryx Vue.js GitHub Org</v-btn>
+					    <v-btn outline color="light-blue darken-3" href="https://github.com/alteryx-vue" target="_blank">Alteryx Vue.js GitHub Org</v-btn>
+					    <v-btn outline color="cyan darken-2" href="https://github.com/alteryx-vue/ayx-vue-starter" target="_blank">Alteryx Vue HTML/JS Starter Tool</v-btn>
 					  </div>
 			    </v-card-text>
 			  </v-card>
