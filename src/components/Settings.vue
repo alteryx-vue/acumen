@@ -17,7 +17,7 @@
 					<div class="title blue-grey--text">Authentication Type</div>
 				</v-card-title>
 				<v-card-text>
-					<div class="subheader my-0 py-0">Toggling this may require a 'hard' browser refresh for the charts to update <code>ctrl + F5</code></div>
+					<div class="subheader my-0 py-0">Toggling this may require a 'hard' browser refresh for the charts to update&nbsp;&nbsp;<code>ctrl + F5</code></div>
 					<v-radio-group v-model="authType" class="my-0 py-0">
 				      <v-radio label="Integrated" value="integrated"></v-radio>
 				      <v-radio label="Windows" value="windows"></v-radio>
