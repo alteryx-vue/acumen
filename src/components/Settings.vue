@@ -14,6 +14,19 @@
 
 			<v-card class="mb-3">
 				<v-card-title class="pb-0">
+					<div class="title blue-grey--text">Authentication Type</div>
+				</v-card-title>
+				<v-card-text>
+					<div class="subheader my-0 py-0">Toggling this may require a 'hard' browser refresh for the charts to update <code>ctrl + F5</code></div>
+					<v-radio-group v-model="authType" class="my-0 py-0">
+				      <v-radio label="Integrated" value="integrated"></v-radio>
+				      <v-radio label="Windows" value="windows"></v-radio>
+				    </v-radio-group>
+				</v-card-text>
+			</v-card>
+
+			<v-card class="mb-3">
+				<v-card-title class="pb-0">
 					<div class="title blue-grey--text">Private Studio API</div>
 				</v-card-title>
 				<v-card-text>
@@ -61,6 +74,7 @@
     name: 'Settings',
     data () {
       return {
+      	
       }
     },
 	computed: {
@@ -70,6 +84,14 @@
 			},
 			set (value) {
 				this.$store.commit('updateGallery', value)
+			}
+		},
+		authType: {
+			get () {
+				return this.$store.state.authType
+			},
+			set (value) {
+				this.$store.commit('updateAuthType', value)
 			}
 		},
 		key: {

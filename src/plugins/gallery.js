@@ -1,26 +1,42 @@
 import oauthsimple from 'oauthsimple'
 import {store} from '../store.js'
 import axios from 'axios'
+import FileSaver from 'file-saver'
 
 const gallery = {
 
 	install(Vue, options) {
 
-		this.getSignedUrl = (method, endpoint) => {
+		// Alteryx MongoDB API App - API Output Tool IDs
+		const apiOutputData = 32 // the data output
+		const apiOutputInfo = 139 // the info output
+
+		this.getSignedUrl = (method, endpoint, search) => {
 
 				var api = endpoint.includes('/admin/') ? store.state.adminApi : store.state.privateApi,
 				key = api.key,
 				secret = api.secret,
 				nonce = Math.floor(Math.random() * 1e9).toString(),
 	            ts = Math.floor(new Date().getTime()/1000).toString(),
-				oauth = new oauthsimple(),
-				config = {
-					path: endpoint,
-					parameters: 'oauth_nonce='+nonce+'&oauth_timestamp='+ts+'&oauth_version=1.0',
-					signatures:{
-						api_key: key,
-						shared_secret: secret
-					}
+				oauth = new oauthsimple()
+				if (search) {
+					var config = {
+							path: endpoint,
+							parameters: search + '&oauth_nonce=' + nonce + '&oauth_timestamp=' + ts + '&oauth_version=1.0',
+							signatures:{
+								api_key: key,
+								shared_secret: secret
+							}
+						}
+				} else {
+					var config = {
+							path: endpoint,
+							parameters: 'oauth_nonce=' + nonce + '&oauth_timestamp=' + ts + '&oauth_version=1.0',
+							signatures:{
+								api_key: key,
+								shared_secret: secret
+							}
+						}
 				}
 
     			oauth.setAction(method)
@@ -44,10 +60,16 @@ const gallery = {
 					        this.pollJob(id,limit,interval, storeArray)
 					    });
 			        } else {
-			        	var fields = response.data.messages.filter((m) => m.status == 40 && m.toolId > 0).map(this.messageParse),
-			        	records = response.data.messages.filter((m) => m.status == 41 && m.toolId > 0).map(this.messageParse),
+			        	var fields = response.data.messages.filter((m) => m.status == 40 && m.toolId == apiOutputData).map(this.messageParse),
+			        	records = response.data.messages.filter((m) => m.status == 41 && m.toolId == apiOutputData).map(this.messageParse),
 			        	mapped = this.mapRecords(fields, records)
 			        	this.commit(storeArray,mapped)
+
+			        	if(storeArray == 'jobs'){
+			        		var info = response.data.messages.filter((m) => m.status == 41 && m.toolId == apiOutputInfo)[0].text.replace(/^"(.+(?="$))"$/, '$1')
+			        		store.commit('updateJobTotal',info)
+			        	}
+       
 			        }
 				})
 				.catch((error) => {
@@ -159,7 +181,8 @@ const gallery = {
 				    { "name": "gallery", "value": store.state.mongodb.gallerydb },
 				    { "name": "service", "value": store.state.mongodb.servicedb },
 				    { "name": "user", "value": store.state.mongodb.user },
-				    { "name": "pass", "value": store.state.mongodb.pass }
+				    { "name": "pass", "value": store.state.mongodb.pass },
+				    { "name": "auth", "value": store.state.authType }
 				  ]
 				}
 
@@ -169,6 +192,7 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
+					// console.log('Job ID: ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
@@ -198,10 +222,10 @@ const gallery = {
 				    { "name": "gallery", "value": store.state.mongodb.gallerydb },
 				    { "name": "service", "value": store.state.mongodb.servicedb },
 				    { "name": "user", "value": store.state.mongodb.user },
-				    { "name": "pass", "value": store.state.mongodb.pass }
+				    { "name": "pass", "value": store.state.mongodb.pass },
+				    { "name": "auth", "value": store.state.authType }
 				  ]
 				}
-				// console.log('Request URL: ' + reqUrl)
 				axios({
 				  method: type,
 				  url: reqUrl,
@@ -213,6 +237,7 @@ const gallery = {
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
 				.catch((error) => {
+					console.log(error)
 					store.commit('updateApiError', error)
 					store.commit('updateUsersLoading', false)
 				})
@@ -238,7 +263,8 @@ const gallery = {
 				    { "name": "gallery", "value": store.state.mongodb.gallerydb },
 				    { "name": "service", "value": store.state.mongodb.servicedb },
 				    { "name": "user", "value": store.state.mongodb.user },
-				    { "name": "pass", "value": store.state.mongodb.pass }
+				    { "name": "pass", "value": store.state.mongodb.pass },
+				    { "name": "auth", "value": store.state.authType }
 				  ]
 				}
 
@@ -278,7 +304,8 @@ const gallery = {
 				    { "name": "gallery", "value": store.state.mongodb.gallerydb },
 				    { "name": "service", "value": store.state.mongodb.servicedb },
 				    { "name": "user", "value": store.state.mongodb.user },
-				    { "name": "pass", "value": store.state.mongodb.pass }
+				    { "name": "pass", "value": store.state.mongodb.pass },
+				    { "name": "auth", "value": store.state.authType }
 				  ]
 				}
 
@@ -298,6 +325,48 @@ const gallery = {
 				})
 
 		    },
+		    getPackage (appId, appName) {
+
+		    	var type = 'GET',
+				url = store.state.gallery + '/api/admin/v1/' + appId + '/package/',
+				reqUrl = gallery.getSignedUrl(type, url)
+
+				axios({
+				  method: type,
+				  url: reqUrl,
+				  responseType: 'blob'
+				})
+				.then((response) => {
+					// console.log('Downloaded package.  Prompting download now...')
+					var filename = appName + '.yxzp'
+					FileSaver.saveAs(response.data, filename)
+				})
+				.catch((error) => {
+					console.log('Download failed...sorry')
+				})
+
+		    },
+		    getPackageInfo (packageId) {
+
+		    	var type = 'GET',
+				url = store.state.gallery + '/api/admin/v1/workflows/',
+				search = 'search=' + packageId + '&limit=1',
+				reqUrl = gallery.getSignedUrl(type, url, search)
+
+				axios({
+				  method: type,
+				  url: reqUrl
+				})
+				.then((response) => {
+					// console.log(response.data)
+					store.commit('updatePackage', response.data)
+				})
+				.catch((error) => {
+					console.log('Package load failed...sorry')
+					console.log(error)
+				})
+
+		    }
 		}
 
 	}

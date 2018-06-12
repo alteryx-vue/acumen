@@ -23,7 +23,7 @@
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action v-if="item.count > 0">
-            <span class="blue--text text--darken-1">{{ item.count }}</span>
+            <span class="blue--text text--darken-1">{{ item.action }}</span>
           </v-list-tile-action>
         </v-list-tile>
       </v-list>
@@ -61,37 +61,43 @@
             title: 'Overview', 
             route: '/', 
             icon: 'dashboard', 
-            count: 0 
+            count: 0,
+            action: null
           },
           { 
             title: 'Users', 
             route: '/users', 
             icon: 'supervisor_account', 
-            count: this.$store.state.users.data.length
+            count: this.$store.state.users.data.length,
+            action: this.$store.state.users.data.length
           },
           { 
             title: 'Sessions', 
             route: '/sessions', 
             icon: 'visibility', 
-            count: this.$store.state.sessions.data.filter((s) => this.$moment(s.LastActive).isSameOrAfter(this.$moment().startOf('day'))).length 
+            count: this.$store.state.sessions.data.filter((s) => this.$moment(s.LastActive).isSameOrAfter(this.$moment().startOf('day'))).length,
+            action: this.$store.state.sessions.data.filter((s) => this.$moment(s.LastActive).isSameOrAfter(this.$moment().startOf('day'))).length
           },
           {
             title: 'Jobs', 
             route: '/jobs', 
             icon: 'schedule', 
-            count: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.$store.state.mongodb.app && m.Status == 'Running').length
+            count: parseInt(this.$store.state.jobs.total),
+            action: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.$store.state.mongodb.app && m.Status == 'Running').length.toString() + '/' + this.$store.state.jobs.total
           },          
           { 
             title: 'Content', 
             route: '/content', 
             icon: 'get_app', 
-            count: 0 
+            count: 0,
+            action: null
           },
           { 
             title: 'Settings', 
             route: '/settings', 
             icon: 'settings', 
-            count: 0 
+            count: 0,
+            action: null
           }
         ]
       },

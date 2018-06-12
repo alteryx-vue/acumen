@@ -10,6 +10,7 @@ import Overview from './components/Overview.vue'
 import Sessions from './components/Sessions.vue'
 import Settings from './components/Settings.vue'
 import Content from './components/Content.vue'
+import ContentSearch from './components/ContentSearch.vue'
 import Jobs from './components/Jobs.vue'
 import Users from './components/Users.vue'
 
@@ -22,7 +23,8 @@ const routes = [
     { path: '/', name: 'Overview', component: Overview },
     { path: '/sessions', name: 'Sessions', component: Sessions },
     { path: '/settings', name: 'Settings', component: Settings },
-    { path: '/content', name: 'Content', component: Content },
+    { path: '/content', name: 'Content Search', component: ContentSearch },
+    { path: '/content/:id', name: 'Package Info', component: Content },
     { path: '/jobs', name: 'Jobs', component: Jobs },
     { path: '/users', name: 'Users', component: Users },
   ]

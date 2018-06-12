@@ -7,6 +7,7 @@ const vuexLocal = new VuexPersistence({
     storage: window.localStorage,
     reducer: state => ({
     	gallery: state.gallery,
+    	authType: state.authType,
     	privateApi: state.privateApi,
 		adminApi: state.adminApi,
 		mongodb: state.mongodb
@@ -37,6 +38,7 @@ export const store = new Vuex.Store({
 			user: 'user',
 			pass: ''
 		},
+		authType: 'integrated',
 		apiError: null,
 		loading: false,
 		status: null,
@@ -53,16 +55,21 @@ export const store = new Vuex.Store({
 		jobs: {
 			loading: false,
 			refreshrate: '0',
-			data: []
+			data: [],
+			total: '0'
 		},
 		jobResult: {
 			errors: null,
 			log: null
-		}
+		},
+		package: null
 	},
 	mutations: {
 		updateGallery (state, v) {
 			state.gallery = v
+		},
+		updateAuthType (state, v) {
+			state.authType = v
 		},
 		updateKey (state, v) {
 			state.privateApi.key = v
@@ -132,6 +139,15 @@ export const store = new Vuex.Store({
 		},
 		updateRefreshRate (state, v) {
 			state.jobs.refreshrate = v
+		},
+		updateJobTotal(state, v) {
+			state.jobs.total = v
+		},
+		updatePackage(state, v) {
+			state.package = v[0]
+		},
+		clearPackage(state) {
+			state.package = null
 		}
 	},
 	plugins: [vuexLocal.plugin]

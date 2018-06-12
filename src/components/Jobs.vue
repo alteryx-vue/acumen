@@ -174,7 +174,7 @@
     <v-card>
 
       <v-list subheader>
-        <v-subheader>Complete - {{ jobs.complete.length }} jobs run today</v-subheader>
+        <v-subheader>Complete - <b>&nbsp;{{ jobs.total }}&nbsp;</b> jobs run today, showing the most recent {{ jobs.complete.length }}</v-subheader>
         <v-data-iterator
           content-tag="v-layout"
           :loading="loadingJobs"
@@ -202,7 +202,7 @@
                   <v-container>
                     <v-layout row>
                       <v-flex xs6>
-                       <v-list-tile-title class="light-blue--text text--darken-4">{{ props.item.AppName }}</v-list-tile-title>
+                       <v-list-tile-title class="light-blue--text text--darken-4">{{ props.item.AppName }}</v-btn></v-list-tile-title>
                       </v-flex>
                       <v-flex xs2>
                         {{ humanStartTime(props.item.StartTime) }}
@@ -211,6 +211,8 @@
                        {{ props.item.JobType }}
                       </v-flex>
                       <v-flex xs2>
+                        <v-icon v-if="props.item.ResultCode == '2'" color="red" size="20">error</v-icon>
+                        <v-icon v-else color="green" size="20">check_circle</v-icon>
                         {{ props.item.Status }}
                       </v-flex>
                     </v-layout>
@@ -239,10 +241,26 @@
                 </v-list-tile-content>
 
                 <v-list-tile-action>
-                  <v-btn icon ripple @click="getResultDetails(props.item)">
+                  <!-- <v-btn icon ripple @click="getResultDetails(props.item)">
                     <v-icon v-if="props.item.ResultCode == '2'" color="red">error</v-icon>
                     <v-icon v-else color="green">check_circle</v-icon>
-                  </v-btn>
+                  </v-btn> -->
+                    <v-menu bottom left>
+                      <v-btn slot="activator" icon>
+                        <v-icon>more_vert</v-icon>
+                      </v-btn>
+                      <v-list>
+                        <v-list-tile @click="getResultDetails(props.item)">
+                          <v-list-tile-title><v-icon color="grey" class="mr-2">description</v-icon>Log</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :to="'/content/' + props.item.GalleryAppID">
+                          <v-list-tile-title><v-icon color="grey" class="mr-2">exit_to_app</v-icon>App Info</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile @click="getPackage(props.item.GalleryAppID, props.item.AppName)">
+                          <v-list-tile-title><v-icon color="grey" class="mr-2">get_app</v-icon>Download</v-list-tile-title>
+                        </v-list-tile>
+                      </v-list>
+                    </v-menu>
                 </v-list-tile-action>
 
               </v-list-tile>
@@ -367,6 +385,7 @@
         return {
           running: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.mongoAppId && m.Status == 'Running'),
           complete: this.$store.state.jobs.data.filter((m) => m.Status !== 'Running'),
+          total: this.$store.state.jobs.total
         }
       },
       loadingJobs() {
@@ -405,6 +424,9 @@
       this.checkIntervals(parseInt(this.$store.state.jobs.refreshrate))
     },
     methods: {
+      getPackage(appId, appName) {
+        this.$gallery.getPackage(appId, appName)
+      },
       loadJobs(x) {
         this.$gallery.getJobs()
         if (x > 0) { this.progressCount = 0 }
