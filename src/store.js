@@ -56,7 +56,8 @@ export const store = new Vuex.Store({
 			loading: false,
 			refreshrate: '0',
 			data: [],
-			total: '0'
+			total: '0',
+			hourly: []
 		},
 		jobResult: {
 			errors: null,
@@ -112,9 +113,9 @@ export const store = new Vuex.Store({
 		updateQuestions (state, v) {
 			state.questions = v
 		},
-		updateJobs (state, v) {
-			state.jobs = v
-		},
+		// updateJobs (state, v) {
+		// 	state.jobs = v
+		// },
 		updateJob (state, v) {
 			state.job = v
 		},
@@ -144,6 +145,9 @@ export const store = new Vuex.Store({
 		},
 		updateJobTotal(state, v) {
 			state.jobs.total = v
+		},
+		updateHourlyJobs(state, v){
+			state.jobs.hourly = v
 		},
 		updatePackage(state, v) {
 			state.package = v[0]

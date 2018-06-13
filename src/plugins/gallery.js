@@ -66,8 +66,12 @@ const gallery = {
 			        	this.commit(storeArray,mapped)
 
 			        	if(storeArray == 'jobs'){
-			        		var info = response.data.messages.filter((m) => m.status == 41 && m.toolId == apiOutputInfo)[0].text.replace(/^"(.+(?="$))"$/, '$1')
-			        		store.commit('updateJobTotal',info)
+			        		var jobTotal = response.data.messages.filter((m) => m.status == 41 && m.toolId == apiOutputInfo)[0].text.replace(/^"(.+(?="$))"$/, '$1'),
+			        		hourlyCounts = response.data.messages.filter((m) => m.status == 41 && m.toolId == apiOutputInfo).map(r => {
+				        			return parseInt(r.text.replace(/^"(.+(?="$))"$/, '$1'))
+								})
+			        		store.commit('updateHourlyJobs',hourlyCounts.slice(1))
+			        		store.commit('updateJobTotal',jobTotal)
 			        	}
        
 			        }

@@ -39,6 +39,8 @@
 
     <v-progress-linear v-if="jobsRefresh > 0" :value="progress" height="2" color="grey" class="mb-0"></v-progress-linear>
 
+    <hourly-jobs v-if="jobsByHour.datasets[0].data.length > 0" :data="jobsByHour" height="160" title="Jobs by Hour" class="mb-2"></hourly-jobs>
+
     <v-card class="mb-2">
 
       <v-list subheader>
@@ -49,7 +51,7 @@
           row
           wrap
           :items="jobs.running"
-          no-data-text="No jobs running.."
+          :no-data-text="noDataRunning"
           hide-actions
         >
           <v-flex
@@ -183,7 +185,7 @@
           :items="jobs.complete"
           :rows-per-page-items="rowsPerPageItems"
           :pagination.sync="pagination"
-          no-data-text="No jobs.."
+          :no-data-text="noDataComplete"
           :search="search"
         >
           <v-flex
@@ -241,10 +243,6 @@
                 </v-list-tile-content>
 
                 <v-list-tile-action>
-                  <!-- <v-btn icon ripple @click="getResultDetails(props.item)">
-                    <v-icon v-if="props.item.ResultCode == '2'" color="red">error</v-icon>
-                    <v-icon v-else color="green">check_circle</v-icon>
-                  </v-btn> -->
                     <v-menu bottom left>
                       <v-btn slot="activator" icon>
                         <v-icon>more_vert</v-icon>
@@ -345,9 +343,11 @@
 <script>
   var moment = require('moment')
   var humanizeDuration = require('humanize-duration')
+  import HourlyJobs from './charts/bar'
 
   export default {
     name: 'Jobs',
+    components: { HourlyJobs },
     data () {
       return {
         mongoAppId: this.$store.state.mongodb.app,
@@ -381,6 +381,26 @@
       }
     },
     computed: {
+      jobsByHour() {
+        return {
+          labels: ['12a', '1a', '2a', '3a', 
+                   '4a', '5a', '6a', '7a',
+                   '8a', '9a', '10a', '11a',
+                   '12p', '1p','2p','3p',
+                  '4p','5p','6p','7p',
+                  '8p','9p','10p','11p'],
+          datasets: [
+            {
+              label: 'Jobs',
+              backgroundColor: 'rgba(239, 108, 0, .25)',
+              borderColor: '#E65100',
+              borderWidth: 1,
+              borderSkipped: 'top',
+              data: this.$store.state.jobs.hourly
+            }
+          ]
+        }
+      },
       jobs() {
         return {
           running: this.$store.state.jobs.data.filter((m) => m.GalleryAppID !== this.mongoAppId && m.Status == 'Running'),
@@ -390,6 +410,12 @@
       },
       loadingJobs() {
         return this.$store.state.jobs.loading
+      },
+      noDataRunning() {
+        return this.$store.state.jobs.loading ? 'Loading...' : 'Nothing currently running...'
+      },
+      noDataComplete() {
+        return this.$store.state.jobs.loading ? 'Loading...' : 'No jobs yet today...'
       },
       jobsText() {
         return this.$store.state.jobs.loading ? 'Loading jobs...' : 'Jobs are not currently loaded...'

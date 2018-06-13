@@ -19,6 +19,15 @@ export default {
         },
         animation: {
           animateScale: true
+        },
+        scales: {
+            xAxes: [{
+              gridLines: { display: false },
+              barPercentage: 0.25
+            }],
+            // yAxes: [{
+            //   gridLines: { display: false }
+            // }]
         }
       }
     }
