@@ -66,13 +66,13 @@ var moment = require('moment')
 
         	var p = this.$store.state.package
 
-        	if (p.packageType == 1) {
+        	if (p.packageType == 0) {
+        		var pType = 'App'
+        	} else if (p.packageType == 1) {
         		var pType = 'Workflow'
         	} else if (p.packageType == 2) {
-        		var pType = 'App'
-        	} else if (p.packageType == 3) {
         		var pType = 'Macro'
-        	} else if (p.packageType == 0) {
+        	} else if (p.packageType == 3) {
         		var pType = 'Alteryx Package'
         	} else {
         		var pType = 'Other'

@@ -110,13 +110,13 @@ var moment = require('moment')
 								res.description = r.metaInfo.description
 							}
 
-							if (r.packageType == 1) {
+							if (r.packageType == 0) {
+				        		res.type = 'App'
+				        	} else if (r.packageType == 1) {
 				        		res.type = 'Workflow'
 				        	} else if (r.packageType == 2) {
-				        		res.type = 'App'
-				        	} else if (r.packageType == 3) {
 				        		res.type = 'Macro'
-				        	} else if (r.packageType == 0) {
+				        	} else if (r.packageType == 3) {
 				        		res.type = 'Alteryx Package'
 				        	} else {
 				        		res.type = 'Other'
