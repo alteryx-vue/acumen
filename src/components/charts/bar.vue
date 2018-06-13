@@ -25,9 +25,6 @@ export default {
               gridLines: { display: false },
               barPercentage: 0.25
             }],
-            // yAxes: [{
-            //   gridLines: { display: false }
-            // }]
         }
       }
     }

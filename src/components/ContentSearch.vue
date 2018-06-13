@@ -132,23 +132,6 @@ var moment = require('moment')
     		} else {
     			return []
     		}
-            // var uploaded = moment(p.uploadDate).format('YYYY-MM-DD')
-            // var uploadedHuman = moment(p.uploadDate).fromNow()
-            // var lastRun = moment(p.lastRunDate).format('YYYY-MM-DD h:mm a')
-            // var lastRunHuman = moment(p.lastRunDate).fromNow()
-
-        	// return [
-        	// {name: 'Package Type',desc: pType, icon: 'card_giftcard'},
-        	// {name: 'Filename',desc: p.fileName, icon: 'attach_file'},
-        	// {name: 'Version',desc: p.publishedVersionNumber, icon: 'perm_device_information'},
-        	// {name: 'Owner',desc: p.publishedVersionOwner.firstName + ' ' + p.publishedVersionOwner.lastName, descExtra: p.publishedVersionOwner.email, icon: 'person'},
-        	// {name: 'Studio',desc: p.subscriptionName, icon: 'wallpaper'},
-        	// {name: 'Availability',desc: avail, icon: lockIcon},
-        	// {name: 'Uploaded',desc: uploaded, descExtra: uploadedHuman, icon: 'cloud_upload'},
-        	// {name: 'Last Run',desc: lastRun, descExtra: lastRunHuman, icon: 'refresh'},
-        	// {name: 'Run Count',desc: p.runCount, icon: 'timeline'},
-        	// {name: 'Chained App?',desc: chained, icon: chainIcon},
-         //  ]
     	},
     	searching() {
     		return this.$store.state.searching

@@ -120,7 +120,6 @@ const gallery = {
 			    case 'results':
 			        store.commit('updateResult', data)
 			        console.log('Updated results in store')
-		    		// store.commit('updateJobsLoading', false)
 			        break;
 			    default:
 			        // Hmmm
@@ -168,7 +167,6 @@ const gallery = {
 		    getSessions () {
 
 		    	store.commit('updateSessionsLoading', true)
-		    	// store.commit('updateSessions', [])
 
 				var resource = 'sessions',
 				appId = store.state.mongodb.app,
@@ -196,7 +194,6 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
-					// console.log('Job ID: ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
@@ -209,7 +206,6 @@ const gallery = {
 			getUsers () {
 
 		    	store.commit('updateUsersLoading', true)
-		    	// store.commit('updateUsers', [])
 
 				var resource = 'users',
 				appId = store.state.mongodb.app,
@@ -236,7 +232,6 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
-					// console.log('Job ID: ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
@@ -250,7 +245,6 @@ const gallery = {
 		    getJobs () {
 
 		    	store.commit('updateJobsLoading', true)
-		    	// store.commit('updateJobs', [])
 
 				var resource = 'jobs',
 				appId = store.state.mongodb.app,
@@ -290,9 +284,6 @@ const gallery = {
 		    },
 			getResult (jobId) {
 
-		    	// store.commit('updateJobsLoading', true)
-		    	// store.commit('updateJobs', [])
-		    	// console.log('$gallery confirms job id: ' + jobId)
 				var resource = 'results',
 				appId = store.state.mongodb.app,
 				type = 'POST',
@@ -319,13 +310,11 @@ const gallery = {
 				  data: questions
 				})
 				.then((response) => {
-					// console.log('Call job id = ' + response.data.id)
 					store.commit('updateJob', response.data.id)
 					gallery.pollJob(response.data.id,50,300,resource)
 				})
 				.catch((error) => {
 					store.commit('updateApiError', error)
-					// store.commit('updateUsersLoading', false)
 				})
 
 		    },
@@ -341,7 +330,6 @@ const gallery = {
 				  responseType: 'blob'
 				})
 				.then((response) => {
-					// console.log('Downloaded package.  Prompting download now...')
 					var filename = appName + '.yxzp'
 					FileSaver.saveAs(response.data, filename)
 				})
@@ -362,7 +350,6 @@ const gallery = {
 				  url: reqUrl
 				})
 				.then((response) => {
-					// console.log(response.data)
 					store.commit('updatePackage', response.data)
 				})
 				.catch((error) => {
@@ -383,7 +370,6 @@ const gallery = {
 				  url: reqUrl
 				})
 				.then((response) => {
-					// console.log(response.data)
 					store.commit('updateSearchResults', response.data)
 					store.commit('updateSearching', false)
 				})

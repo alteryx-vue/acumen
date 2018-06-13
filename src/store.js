@@ -113,9 +113,6 @@ export const store = new Vuex.Store({
 		updateQuestions (state, v) {
 			state.questions = v
 		},
-		// updateJobs (state, v) {
-		// 	state.jobs = v
-		// },
 		updateJob (state, v) {
 			state.job = v
 		},
