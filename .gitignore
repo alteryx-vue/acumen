@@ -11,3 +11,4 @@ web.config
 *.ntvs*
 *.njsproj
 *.sln
+*.lock
