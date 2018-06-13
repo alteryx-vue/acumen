@@ -11,6 +11,9 @@
 # clone
 git clone https://github.com/alteryx-vue/acumen.git
 
+# navigate to directory
+cd acumen
+
 # install dependencies
 npm install
 
