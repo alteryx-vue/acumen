@@ -1,6 +1,10 @@
 <template>
 	
 	<div>
+          <v-btn flat small color="primary" to="/content">
+            <v-icon class="mr-2">arrow_back</v-icon>
+            Content Search
+          </v-btn>
 
 	      <v-card>
 	        <v-card-title primary-title>
@@ -106,7 +110,6 @@ var moment = require('moment')
         	{name: 'Last Run',desc: lastRun, descExtra: lastRunHuman, icon: 'refresh'},
         	{name: 'Run Count',desc: p.runCount, icon: 'timeline'},
         	{name: 'Chained App?',desc: chained, icon: chainIcon},
-
           ]
         }
     },

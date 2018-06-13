@@ -366,6 +366,29 @@ const gallery = {
 					console.log(error)
 				})
 
+		    },
+		    searchGallery (qry) {
+
+		    	var type = 'GET',
+				url = store.state.gallery + '/api/admin/v1/workflows/',
+				search = 'search=' + qry + '&limit=50',
+				reqUrl = gallery.getSignedUrl(type, url, search)
+
+				axios({
+				  method: type,
+				  url: reqUrl
+				})
+				.then((response) => {
+					// console.log(response.data)
+					store.commit('updateSearchResults', response.data)
+					store.commit('updateSearching', false)
+				})
+				.catch((error) => {
+					store.commit('updateSearching', false)
+					console.log('Search failed...sorry')
+					console.log(error)
+				})
+
 		    }
 		}
 

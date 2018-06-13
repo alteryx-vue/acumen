@@ -62,7 +62,9 @@ export const store = new Vuex.Store({
 			errors: null,
 			log: null
 		},
-		package: null
+		package: null,
+		searchResults: null,
+		searching: false
 	},
 	mutations: {
 		updateGallery (state, v) {
@@ -148,6 +150,15 @@ export const store = new Vuex.Store({
 		},
 		clearPackage(state) {
 			state.package = null
+		},
+		updateSearchResults(state, v) {
+			state.searchResults = v
+		},
+		clearSearchResults(state) {
+			state.searchResults = null
+		},
+		updateSearching(state, v) {
+			state.searching = v
 		}
 	},
 	plugins: [vuexLocal.plugin]
