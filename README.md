@@ -5,7 +5,13 @@
 
 > An Alteryx Gallery & Server Admin Tool
 
-## Build Setup
+### Features
+- Quickly browse Gallery users with filter/search functionality
+- View user sessions to see who's actually visiting/publishing on the Gallery
+- Analyze jobs for the current day - whether running or completed
+- Load Gallery content metadata and even download packages!
+
+### Install &amp; Build
 
 ``` bash
 # clone
@@ -24,18 +30,18 @@ npm run dev
 npm run build
 ```
 
-> Alteryx MongoDB API App
+#### Alteryx MongoDB API App
 
 - Download the [MongoDB API App](https://gallery.alteryx.com/#!app/Alteryx-MongoDB-API-App/5b2032b8826fd32438e9a640) from the public gallery and save/publish a copy in your organization's gallery
 - Grab the App's ID from it's URL
 
-> Settings
+#### Settings
 
 Visit the settings page in Alteryx Acumen and populate appropriately
 
 Contribute!!!
 
-### Screenshots
+#### Screenshots
 ![image](https://user-images.githubusercontent.com/23061476/41372216-9c80d56c-6f1a-11e8-94ac-7236af630bc0.png)
 ![image](https://user-images.githubusercontent.com/23061476/41372264-c1fb0402-6f1a-11e8-9287-97efe91b3648.png)
 ![image](https://user-images.githubusercontent.com/23061476/41372296-e25e6cac-6f1a-11e8-8144-31b4ebd72276.png)
