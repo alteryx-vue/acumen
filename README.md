@@ -1,7 +1,7 @@
 
 # Alteryx Acumen
 
-[![GitHub release](https://img.shields.io/github/release/alteryx-vue/acumen.svg)](https://github.com/alteryx-vue/acumen) [![Build Status](https://travis-ci.org/alteryx-vue/acumen.svg?branch=master)](https://travis-ci.org/alteryx-vue/acumen) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
+[![GitHub release](https://img.shields.io/github/release/alteryx-vue/acumen/all.svg)](https://github.com/alteryx-vue/acumen) [![Build Status](https://travis-ci.org/alteryx-vue/acumen.svg?branch=master)](https://travis-ci.org/alteryx-vue/acumen) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
 > An Alteryx Gallery & Server Admin Tool
 
