@@ -4,27 +4,16 @@ import { Doughnut } from 'vue-chartjs'
 
 export default {
   extends: Doughnut,
-  props: ['data','height','title'],
-  data() {
-    return {
-      options: {
-        responsive: true, 
-        maintainAspectRatio: false, 
-        legend: { 
-          position: 'left'
-        },
-        title: {
-          display: true,
-          text: this.title
-        },
-        animation: {
-          animateScale: true
-        }
-      }
-    }
-  },
+  props: ['data','options','height'],
   mounted () {
     this.renderChart(this.data, this.options)
+  },
+  watch: {
+    data: function () {
+      // rerender with new data
+      this.$data._chart.destroy()
+      this.renderChart(this.data, this.options)
+    }
   }
 }
 

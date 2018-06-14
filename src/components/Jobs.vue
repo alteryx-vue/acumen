@@ -39,7 +39,7 @@
 
     <v-progress-linear v-if="jobsRefresh > 0" :value="progress" height="2" color="grey" class="mb-0"></v-progress-linear>
 
-    <hourly-jobs v-if="jobsByHour.datasets[0].data.length > 0" :data="jobsByHour" height="160" title="Jobs by Hour" class="mb-2"></hourly-jobs>
+    <hourly-jobs v-if="jobsByHour.datasets[0].data.length > 0" :data="jobsByHour" height="160" :options="chartOptions" class="mb-2"></hourly-jobs>
 
     <v-card class="mb-2">
 
@@ -377,6 +377,26 @@
           runTime: null,
           startTime: null,
           endTime: null
+        },
+        chartOptions: {
+          responsive: true, 
+          maintainAspectRatio: false, 
+          legend: { 
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Jobs by Hour'
+          },
+          animation: {
+            animateScale: true
+          },
+          scales: {
+              xAxes: [{
+                gridLines: { display: false },
+                barPercentage: 0.25
+              }],
+          }
         }
       }
     },

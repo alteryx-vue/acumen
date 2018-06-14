@@ -29,12 +29,12 @@
 		<v-layout row wrap v-if="userRoles.labels.length > 0">
 			<v-flex xs3>
 				<v-card class="elevation-3 pa-3">
-					<role-chart :data="userRoles" height="200" title="Users by Role"></role-chart>
+					<role-chart :data="userRoles" :options="donutOptions" height="200"></role-chart>
 				</v-card>
 			</v-flex>
 			<v-flex xs9>
 				<v-card class="elevation-3 pa-3">
-					<newbies-chart :data="newbies" height="200" title="New users by month (rolling year)"></newbies-chart>
+					<newbies-chart :data="newbies" :options="lineOptions" height="200"></newbies-chart>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -183,7 +183,35 @@ import NewbiesChart from './charts/line'
         		{text: 'Join Date', value: 'Joined'}
         	],
         sortOrders: [{ text: 'Asc', value: false},
-        			 { text: 'Desc', value: true}]
+        			 { text: 'Desc', value: true}],
+        lineOptions: {
+          responsive: true, 
+          maintainAspectRatio: false, 
+          legend: { 
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'New users by month (rolling year)'
+          },
+          animation: {
+            animateScale: true
+          }
+        },
+        donutOptions: {
+          responsive: true, 
+          maintainAspectRatio: false, 
+          legend: { 
+            position: 'left'
+          },
+          title: {
+            display: true,
+            text: 'Users by Role'
+          },
+          animation: {
+            animateScale: true
+          }
+        }
       }
     },
     computed: {
