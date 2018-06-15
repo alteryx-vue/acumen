@@ -87,9 +87,14 @@
                         <v-list-tile-sub-title v-if="props.item.JobDesc != props.item.AppName">
                           {{ props.item.JobDesc }}
                         </v-list-tile-sub-title>
+                        <v-list-tile-sub-title v-else>
+                          <small>no description..</small>
+                        </v-list-tile-sub-title>
                       </v-flex>
                       <v-flex xs2>
-                        <!-- Empty Space -->
+                        <v-list-tile-sub-title>
+                          <small>{{ props.item.WorkerNode }}</small>
+                        </v-list-tile-sub-title>
                       </v-flex>
                       <v-flex xs2>
                         <v-list-tile-sub-title>
@@ -223,9 +228,14 @@
                         <v-list-tile-sub-title v-if="props.item.JobDesc != props.item.AppName">
                           {{ props.item.JobDesc }}
                         </v-list-tile-sub-title>
+                        <v-list-tile-sub-title v-else>
+                          <small>no description..</small>
+                        </v-list-tile-sub-title>
                       </v-flex>
                       <v-flex xs2>
-                        <!-- Empty Space -->
+                        <v-list-tile-sub-title>
+                          <small>{{ props.item.WorkerNode }}</small>
+                        </v-list-tile-sub-title>
                       </v-flex>
                       <v-flex xs2>
                         <v-list-tile-sub-title>
