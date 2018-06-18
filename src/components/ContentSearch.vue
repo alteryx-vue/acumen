@@ -37,11 +37,11 @@
 	        </td>
 			</template>
 			<template slot="no-data">
-			  <v-alert :value="query.length > 3 && !searching" color="error">
+			  <v-alert :value="query.length >= minChars && !searching" color="error">
 			    No results for "{{ query }}"
 			  </v-alert>
-			  <v-alert :value="query.length < 4 && !searching" color="info">
-			    Minimum of 4 characters.&nbsp;&nbsp;&nbsp;&nbsp;Underscores do not play well.&nbsp;&nbsp;&nbsp;&nbsp;Result limit = 50.
+			  <v-alert :value="query.length < minChars && !searching" color="info">
+			    Minimum of {{ minChars }} characters.&nbsp;&nbsp;&nbsp;&nbsp;Underscores do not play well.&nbsp;&nbsp;&nbsp;&nbsp;Result limit = 50.
 			  </v-alert>
 			</template>
 	    </v-data-table>
@@ -91,13 +91,14 @@ var moment = require('moment')
             value: 'uploaded'
           }
         ],
-        rowsPerPage: [10,25,{"text":"All","value":50}]
+        rowsPerPage: [10,25,{"text":"All","value":50}],
+        minChars: 3
       }
     },
     computed: {
     	results() {
 
-    		if (this.$store.state.searchResults && this.query.length > 3) {
+    		if (this.$store.state.searchResults && this.query.length >= this.minChars) {
 	    		return this.$store.state.searchResults.map(r => {
 							var res = []
 							
@@ -143,7 +144,7 @@ var moment = require('moment')
     methods: {
         searchGallery() {
 
-        	if (this.query.length > 3) {
+        	if (this.query.length >= this.minChars) {
         		this.$store.commit('updateSearching', true)
         		this.$gallery.searchGallery(this.query)
         	} else {
