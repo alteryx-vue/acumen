@@ -44,7 +44,7 @@
 			    	<div class="subheading mb-2 amber--text text--darken-4">The Process Flow</div>
 			    	The Gallery and Server's underlying Mongo Database is full of rich data - some of which seldom gets "floated" to the Gallery's UI.  That's where Alteryx Acumen comes in handy...
 			    	<div class="my-2"></div>
-			    	We began by developing and publishing the <a href="https://gallery.alteryx.com/#!app/Alteryx-MongoDB-API-App/5b1563a9826fd306ecb2a8ac" target="_blank">Alteryx MongoDB API App</a> to our demo gallery.  This Alteryx Application utilizes the <strong>MongoDB Input</strong> tool and <strong>API Output</strong> tool to, you guessed it, "float" this rich data through the <a href="https://alteryxacumen.rocks/gallery/api-docs/" target="_blank">Gallery APIs</a> and into this web application.
+			    	We began by developing and publishing the <a href="https://raw.githubusercontent.com/alteryx-vue/installers/master/assets/AlteryxMongoDBAPIApp.yxzp" target="_blank">Alteryx MongoDB API App</a> to our demo gallery.  This Alteryx Application utilizes the <strong>MongoDB Input</strong> tool and <strong>API Output</strong> tool to, you guessed it, "float" this rich data through the <a href="https://alteryxacumen.rocks/gallery/api-docs/" target="_blank">Gallery APIs</a> and into this web application.
 			    	<div class="mt-2 subheader">A basic order of operations:</div>
 			    	 <v-container class="mt-0 pt-0">
 			    	 	<ol>
